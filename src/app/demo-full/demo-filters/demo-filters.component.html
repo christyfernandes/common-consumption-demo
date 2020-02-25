@@ -1,0 +1,123 @@
+<app-navbar>
+
+</app-navbar>
+
+<div class="main-container container-fluid">
+  <!-- Page Container -->
+  <div class="page-container">
+    <!-- Page Sidebar -->
+    <app-sidebar>
+
+    </app-sidebar>
+    <!-- /Page Sidebar -->
+  </div>
+</div>
+
+<!-- Main content-->
+<div class="page-content" [ngStyle]="!appSharedService.sideBarVisible && {'margin-left':'43px'}">
+  <div class="page-header position-relative">
+    <div class="header-title">
+      <h1>
+        Filters 
+      </h1>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section id="filters">
+          <h2 class="margin-bottom-20">Filters Component</h2>
+          <div class="well bordered-left bordered-yellow">
+            <p> Library filters Component can be used in the library page, toc page and in all places where filters/pills need to shown</p>
+            <p>Basically there are 3 types of Filters based on the style: </p>
+            <ul class="custom-list">
+              <li>Sqaure Filters </li>
+              <li>Round Filters</li>
+              <li>Round Filters With Icon</li>
+            </ul>
+            <p>You can find more details of the component, various inputs and outputs in the
+              <a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents/blob/master/projects/common-consumption/src/lib/library-filters/library-filters/library-filters.md"
+                target="_blank">
+                component's original repository
+              </a>.
+            </p>
+            <p><i><b>Note : </b></i></p>
+            <p>
+              The width of the overall Filters container is fluid in nature i.e, 100% of the parent conatainer, so user can control the width
+              of the grid based on the parent element in which the card is contained.
+            </p>
+            <p>
+              Text inside filter/pills is not restricted to particular language. Based on your <b>i18n</b> preferences pass inputs in the
+              desired language.
+            </p>
+          </div>
+          <!-- <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <h4>Default Grid View</h4>
+                <sb-library-cards-grid></sb-library-cards-grid>
+            </div>
+          </div> -->
+        </section>
+        <hr>
+        <section id="squareFilters">
+          <h6 class="row-title before-yellow">Sqaure Filters </h6>
+          <p> For default selection of any filter/pill  pass the index of required item. <code>eg:[selectedItems] = [1] </code></p>
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <sb-library-filters [list]="mediums" [layout]="mediumLayout" [selectedItems]="[1]" (selectedFilter)="selectedFilter($event)">
+              </sb-library-filters>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section id="roundFilters">
+          <h6 class="row-title before-yellow">Round Filters </h6>
+          <p> For default selection of any filter/pill  <code>[selectedItems] = [index number] </code> pass the index of required item.</p>
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <sb-library-filters [list]="classes" [layout]="classLayout" (selectedFilter)="selectedFilter($event)" [selectedItems]="[3]">
+              </sb-library-filters>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section id="roundFiltersWithIcon">
+          <h6 class="row-title before-yellow">Round Filters With Icon </h6>
+          <p> For default selection of any filter/pill  <code>[selectedItems] = [index number] </code> pass the index of required item.</p>
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <sb-library-filters [tocList]="mimeTypeFilterCollection" [layout]="'round-with-icon'" [selectedItems]="[0]" 
+                    (selectedMimeType)="selectedFilter($event)">
+                </sb-library-filters>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section id="HandlingOverflow">
+          <h6 class="row-title before-yellow">Handling Overflow </h6>
+          <div class="row margin-top-20">
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+              <sb-library-filters [list]="mediums" [layout]="mediumLayout" [selectedItems]="[1]" (selectedFilter)="selectedFilter($event)">
+              </sb-library-filters>
+            </div>
+          </div>
+          <div class="row margin-top-20">
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+              <sb-library-filters [list]="classes" [layout]="classLayout" (selectedFilter)="selectedFilter($event)" [selectedItems]="[3]">
+              </sb-library-filters>
+            </div>
+          </div>
+          <div class="row margin-top-20">
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+              <sb-library-filters [tocList]="mimeTypeFilterCollection" [layout]="'round-with-icon'" [selectedItems]="[0]" 
+                    (selectedMimeType)="selectedFilter($event)">
+                </sb-library-filters>
+            </div>
+          </div>
+        </section>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
+

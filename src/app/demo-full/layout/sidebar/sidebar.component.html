@@ -1,0 +1,129 @@
+<div class="page-sidebar sidebar-fixed sbsmartscroll-style" id="sidebar" [ngClass]="{'menu-compact': !appSharedService.sideBarVisible}">
+  <!-- Page Sidebar Header-->
+  <div class="sidebar-header-wrapper">
+      
+  </div>
+  <!-- /Page Sidebar Header -->
+  <!-- Sidebar Menu -->
+  <ul class="nav sidebar-menu">
+    <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"  #home>
+      <a  [routerLink]="['/common-consumption-library-demo/home']" >
+          <i class="menu-icon fa fa-home"></i>
+          <span class="menu-text"> Home </span>
+      </a>
+    </li>
+    <li [routerLinkActive]="['active']" [ngClass]="{'open': Card.open, 'open': !Card.open}" (click)="Card.open = !Card.open" #Card>
+        <a [routerLink]="['/common-consumption-library-demo/cards']"  >
+            <i class="menu-icon fa fa-id-card"></i>
+            <span class="menu-text"> Card </span>
+            <i class="menu-expand"></i>
+        </a>
+        <ul class="submenu" (click)="$event.stopPropagation();">
+
+        <li [class.active]="currentFragment==='recentlyViewed'">
+            <a [routerLink]="['/common-consumption-library-demo/cards']" fragment="recentlyViewed">
+                <span class="menu-text">Recently viewed</span>
+            </a>
+        </li>
+        <li [class.active]="currentFragment==='desktopAppTextbooks'">
+            <a [routerLink]="['/common-consumption-library-demo/cards']" fragment="desktopAppTextbooks">
+                <span class="menu-text">Textbook for Desktop</span>
+            </a>
+        </li>
+        <li [class.active]="currentFragment==='mobileAppTextbooks'">
+            <a [routerLink]="['/common-consumption-library-demo/cards']" fragment="mobileAppTextbooks">
+                <span class="menu-text">Textbook for mobile</span>
+            </a>
+        </li>
+        <li [class.active]="currentFragment==='qrCode'">
+            <a [routerLink]="['/common-consumption-library-demo/cards']" fragment="qrCode">
+                <span class="menu-text">QR code </span>
+            </a>
+        </li>
+        <li [class.active]="currentFragment==='cardwithHover'">
+            <a [routerLink]="['/common-consumption-library-demo/cards']" fragment="cardwithHover">
+                <span class="menu-text">Card with hover </span>
+            </a>
+        </li>
+        <li [class.active]="currentFragment==='multipleCards'">
+            <a [routerLink]="['/common-consumption-library-demo/cards']" fragment="multipleCards">
+            <span class="menu-text">Multiple cards  </span>
+            </a>
+        </li>
+        <li [class.active]="currentFragment==='offlineCard'">
+            <a [routerLink]="['/common-consumption-library-demo/cards']" fragment="offlineCard">
+                <span class="menu-text">Offline cards </span>
+            </a>
+        </li>
+        
+
+        </ul>
+    </li>
+    <!--Databoxes-->
+    <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/common-consumption-library-demo/grid']">
+            <i class="menu-icon fa fa-th"></i>
+            <span class="menu-text"> Card Grid </span>
+        </a>
+    </li >
+    <!--Widgets-->
+    <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="['/common-consumption-library-demo/stack']"> 
+            <i class="menu-icon fa fa-list-alt"></i>
+            <span class="menu-text"> Card Stack </span>
+        </a>
+    </li>
+    <!--UI Elements-->
+    <li [ngClass]="{'open active': filters.open, 'open': !filters.open}" (click)="filters.open = !filters.open" #filters>
+        <a [routerLink]="['/common-consumption-library-demo/filters']">
+            <i class="menu-icon fa fa-filter"></i>
+            <span class="menu-text">
+                Filters
+            </span>
+            <i class="menu-expand"></i>
+        </a>
+        <ul class="submenu" (click)="$event.stopPropagation();">
+
+            <li [class.active]="currentFragment==='squareFilters'">
+                <a [routerLink]="['/common-consumption-library-demo/filters']" fragment="squareFilters">
+                    <span class="menu-text">Sqaure Filters</span>
+                </a>
+            </li>
+            <li [class.active]="currentFragment==='roundFilters'">
+                <a [routerLink]="['/common-consumption-library-demo/filters']" fragment="roundFilters">
+                    <span class="menu-text">Round Filters</span>
+                </a>
+            </li>
+            <li [class.active]="currentFragment==='roundFiltersWithIcon'">
+                <a [routerLink]="['/common-consumption-library-demo/filters']" fragment="roundFiltersWithIcon">
+                    <span class="menu-text">Round Filters With Icon</span>
+                </a>
+            </li>
+            <li [class.active]="currentFragment==='HandlingOverflow'">
+                <a [routerLink]="['/common-consumption-library-demo/filters']" fragment="HandlingOverflow">
+                    <span class="menu-text">Handling overflow</span>
+                </a>
+            </li>
+            
+        </ul>
+    </li>
+    <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="['/common-consumption-library-demo/faq']">
+            <i class="menu-icon fa fa-question"></i>
+            <span class="menu-text">
+                FAQ
+            </span>
+        </a>
+    </li>
+    <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['/common-consumption-library-demo/toc']">
+          <i class="menu-icon fa fa-book"></i>
+          <span class="menu-text">
+              Book TOC 
+          </span>
+      </a>
+    </li>
+    
+  </ul>
+  <!-- /Sidebar Menu -->
+</div>

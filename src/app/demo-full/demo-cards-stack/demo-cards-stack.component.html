@@ -1,0 +1,103 @@
+<app-navbar>
+
+</app-navbar>
+
+<div class="main-container container-fluid">
+  <!-- Page Container -->
+  <div class="page-container">
+    <!-- Page Sidebar -->
+    <app-sidebar>
+
+    </app-sidebar>
+    <!-- /Page Sidebar -->
+  </div>
+</div>
+
+<!-- Main content-->
+<div class="page-content" [ngStyle]="!appSharedService.sideBarVisible && {'margin-left':'43px'}">
+  <div class="page-header position-relative">
+    <div class="header-title">
+      <h1>
+        Card Stack
+      </h1>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section id="libraryCardStack">
+          <h2 class="margin-bottom-20">Library Card Stack Component</h2>
+          <div class="well bordered-left bordered-pink">
+            <p> Library Card Stack Component can be used in the library page or in places where a card Stack needs to shown.</p>
+            <p>Stack is meantn to be used in mobile client. This component internally uses LibraryCard component with type='mobile_textbook'</p>
+            <p>Basically there is only 1 type of Stack: </p>
+            <ul class="custom-list">
+              <li>Default Stack - Stack of mibile cards with option to specify maximum cards(i.e, 3, 4 or 5) to be shown in a row and a view all button, Default maximum cards count is 3 </li>
+            </ul>
+            <p>You can find more details of the component, various inputs and outputs in the
+              <a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents/blob/master/projects/common-consumption/src/lib/layout/library-cards-stack/library-cards-stack.md"
+                target="_blank">
+                component's original repository
+              </a>.
+            </p>
+            <p><i><b>Note : </b></i></p>
+            <p>
+              The width of the overall Stack is fluid in nature i.e, 100% of the parent conatainer, so user can control the width
+              of the Stack based on the parent element in which the card is contained.
+            </p>
+            <p>
+              Card Stack is not restricted to particular language. Based on your <b>i18n</b> preferences pass inputs in the
+              desired language.
+            </p>
+            <p>
+              In offline/online/downloaded scenarios where image attribute changes based on the network or other
+              criteria, cardImg property must be updated to all the cards in the list.
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+              <h4>Default Stack View</h4>
+                <sb-library-cards-stack></sb-library-cards-stack>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section>
+          <h6 class="row-title before-pink">Grid of infinite cards </h6>
+          <div class="row">
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+              <sb-library-cards-stack [title]="subjects[0]" [contentList]="contentList"
+                  [viewMoreButtonText]="viewMoreButtonText" [maxCardCount]="3"
+                  (viewMoreClick)="showAllList($event)">
+              </sb-library-cards-stack>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section>
+          <h6 class="row-title before-pink">Grid stack with 3, 4 or 5 maxCardCount </h6>
+          <div class="row">
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+              <sb-library-cards-stack [title]="subjects[0]" [contentList]="contentList"
+                  [viewMoreButtonText]="viewMoreButtonText"
+                  (viewMoreClick)="showAllList($event)">
+              </sb-library-cards-stack>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+              <sb-library-cards-stack [title]="subjects[0]" [contentList]="contentList"
+                  [viewMoreButtonText]="viewMoreButtonText" [maxCardCount]="4"
+                  (viewMoreClick)="showAllList($event)">
+              </sb-library-cards-stack>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+              <sb-library-cards-stack [title]="subjects[0]" [contentList]="contentList"
+                  [viewMoreButtonText]="viewMoreButtonText" [maxCardCount]="5"
+                  (viewMoreClick)="showAllList($event)">
+              </sb-library-cards-stack>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

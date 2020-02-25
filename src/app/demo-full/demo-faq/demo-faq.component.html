@@ -1,0 +1,65 @@
+<app-navbar>
+
+</app-navbar>
+
+<div class="main-container container-fluid">
+  <!-- Page Container -->
+  <div class="page-container">
+    <!-- Page Sidebar -->
+    <app-sidebar>
+
+    </app-sidebar>
+    <!-- /Page Sidebar -->
+  </div>
+</div>
+
+<!-- Main content-->
+<div class="page-content" [ngStyle]="!appSharedService.sideBarVisible && {'margin-left':'43px'}">
+  <div class="page-header position-relative">
+    <div class="header-title">
+      <h1>
+        FAQ
+      </h1>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section id="filters">
+          <h2 class="margin-bottom-20">FAQ component </h2>
+          <div class="well bordered-left bordered-success">
+            <p> FAQ component  Component can be used in the page where frequently asked questions and answers need to shown.</p>
+            <p>This component uses accordion component internally: </p>
+            <p>You can find more details of the component, various inputs and outputs in the
+              <a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents/blob/master/projects/common-consumption/src/lib/faq/faq/faq.md"
+              target="_blank">
+                component's original repository
+              </a>.
+            </p>
+            <p><i><b>Note : </b></i></p>
+            <p>
+              The width of the overall Faq container is fluid in nature i.e, 100% of the parent conatainer, so user can control the width
+              of the grid based on the parent element in which the card is contained.
+            </p>
+            <p>
+              Text inside this component is not restricted to particular language. Based on your <b>i18n</b> preferences pass inputs in the
+              desired language.
+            </p>
+          </div>
+        </section>
+        <hr>
+        <section>
+          <h6 class="row-title before-success">FAQ Component</h6>
+          <p> For FAQ Component to render the view, you need to pass the JSON structure defined in the specs.</p>
+          <div class="row">
+            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+              <sb-faq [data]="staticData" (toggleGroupEvent)="handleEvents($event);" (yesClickedEvent)="handleEvents($event);"
+                (noClickedEvent)="handleEvents($event);" (submitClickedEvent)="handleEvents($event);">
+              </sb-faq>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>  

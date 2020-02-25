@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html" style="max-width:820px"><h1 id="common-angular-components-for-sunbird-consumption">Common angular components for Sunbird consumption!</h1>
+<p>Contains common UI components powered by angular. These components are designed to be used in sunbird consumption platforms <em>(mobile app, web portal, offline desktop app)</em> to drive reusability, maintainability hence reducing the redundant development effort significantly.</p>
+<h1 id="getting-started">Getting Started</h1>
+<p>For help getting started with a new Angular app, check out the Angular CLI.<br>
+For existing apps, follow these steps to begin using .</p>
+<h2 id="step-1-install-the-package">Step 1: Install the package</h2>
+<pre><code>npm install @project-sunbird/common-consumption --save
+npm install common-consumption-styles --save
+</code></pre>
+<h2 id="step-2-include-the-common-consumption-styles-and-assets-in-angular.json">Step 2: Include the common-consumption-styles and assets in angular.json</h2>
+<pre><code>"styles": [
+...
+...
+"./node_modules/common-consumption-styles/assets/_styles.scss"
+]
+</code></pre>
+<p>Add following under architect.build.assets</p>
+<pre><code> {
+    ...
+    "build": {
+    
+    "builder": "@angular-devkit/build-angular:browser",
+    
+    "options": {
+	    ...
+	    ...
+
+	    "assets": [
+	    
+		   ...
+		   ...
+		    
+		    {
+			    "glob": "**/*.*",
+			    "input": "./node_modules/@project-sunbird/common-consumption/assets",
+			    "output": "./assets/common-consumption"
+		    }
+	    
+	    ],
+
+    "styles": [
+    
+    ...
+    
+    "./node_modules/common-consumption-styles/assets/_styles.scss"
+    
+    ],
+    
+    ...
+    ...
+
+},
+</code></pre>
+<h2 id="step-3-import-the-modules-and-components">Step 3: Import the modules and components</h2>
+<p>Import the NgModule for each component you want to use:</p>
+<pre><code>import { CommonConsumptionModule} from '@project-sunbird/common-consumption';
+
+@NgModule({
+    ...
+    
+    imports: [CommonConsumptionModule],
+    
+    ...
+})
+
+
+export class TestAppModule { }
+</code></pre>
+<p>Alternatively, you can create a separate NgModule that imports and then re-exports all of the Angular components that you will use in your application. By exporting them again, other modules can simply include your CustomSunbirdComponentsModule wherever components are needed, and automatically get all of the exported modules. A good place for importing/exporting the application-wide modules is the SharedModule.</p>
+<pre><code>import { CardsModule } from '@project-sunbird/common-consumption/card';
+
+import { PopoverModule } from '@project-sunbird/common-consumption/popover';
+
+
+@NgModule({
+
+...
+
+imports: [CardsModule, PopoverModule],
+
+exports: [CardsModule, PopoverModule],
+
+...
+
+})
+
+
+export class MyOwnCustomSunbirdComponentsModule { }
+</code></pre>
+<h2 id="available-components">Available components</h2>
+
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Notes</th>
+<th>Selector</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents" target="_blank">LibraryCard</a></td>
+<td>Can be used in the library page for all consumption platforms</td>
+<td>sb-library-card</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents" target="_blank">LibraryCardsGrid</a></td>
+<td>Can be used in the courses page for all consumption platforms</td>
+<td>sb-library-cards-grid</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents" target="_blank">LibraryCardsStack</a></td>
+<td>Can be used in the courses page for all consumption platforms</td>
+<td>sb-library-cards-stack</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents" target="_blank">Confirmation Modal</a></td>
+<td>Can be used in places where a popup is needed with user prompt</td>
+<td>sb-confirmation-modal</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents" target="_blank">LibraryFilters</a></td>
+<td>Can be used in the library page for all consumption platforms.</td>
+<td>sb-library-filters</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents" target="_blank">FAQ Component</a></td>
+<td>Faq for Consumption Clients with intractable events.</td>
+<td>sb-faq</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents" target="_blank">Card hover component</a></td>
+<td>Can be used with library card to add overlay on card with action items .</td>
+<td>sb-card-hover</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents" target="_blank">TOCItem component</a></td>
+<td>Shows given  array of Items with accordion structure.</td>
+<td>sb-toc-item</td>
+</tr>
+</tbody>
+</table></div>
+</body>
+
+</html>

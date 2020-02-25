@@ -1,0 +1,104 @@
+<app-navbar>
+
+</app-navbar>
+
+<div class="main-container container-fluid">
+  <!-- Page Container -->
+  <div class="page-container">
+    <!-- Page Sidebar -->
+    <app-sidebar>
+
+    </app-sidebar>
+    <!-- /Page Sidebar -->
+  </div>
+</div>
+
+<!-- Main content-->
+<div class="page-content" [ngStyle]="!appSharedService.sideBarVisible && {'margin-left':'43px'}">
+  <div class="page-header position-relative">
+    <div class="header-title">
+      <h1>
+        Card Grid
+      </h1>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section id="libraryCardGrid">
+          <h2 class="margin-bottom-20">Library Card Grid Component</h2>
+          <div class="well bordered-left bordered-palegreen">
+            <p> Library Card Grid Component can be used in the library page, search page and in all places where a card grid needs to shown</p>
+            <p>This component internally uses LibraryCard component with type='desktop_textbook'</p>
+            <p>Basically there are 3 types of Grids: </p>
+            <ul class="custom-list">
+              <li>Default Grid - Grid of desktop cards with option to specify maximum cards(i.e, 3, 4 or 5) to be shown in a row and a view all button, Default maximum cards count is 3 </li>
+              <li>Grid of infinite cards - Multiple rows of cards will be displayed with max card items per row(i.e, 3, 4 or 5)</li>
+              <li>Grid of infinite cards with hover -  Same as Grid of infinite cards, but here the cards are of type desktopCards with hover. </li>
+            </ul>
+            <p>You can find more details of the component, various inputs and outputs in the
+              <a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents/blob/master/projects/common-consumption/src/lib/layout/library-cards-grid/library-cards-grid.md"
+                target="_blank">
+                component's original repository
+              </a>.
+            </p>
+            <p><i><b>Note : </b></i></p>
+            <p>
+              The width of the overall grid is fluid in nature i.e, 100% of the parent conatainer, so user can control the width
+              of the grid based on the parent element in which the card is contained.
+            </p>
+            <p>
+              Card Grid is not restricted to particular language. Based on your <b>i18n</b> preferences pass inputs in the
+              desired language.
+            </p>
+            <p>
+              In offline/online/downloaded scenarios where image attribute changes based on the network or other
+              criteria, cardImg property must be updated to all the cards in the list.
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <h4>Default Grid View</h4>
+                <sb-library-cards-grid></sb-library-cards-grid>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section class="libraryCardGridExaples">
+          <h6 class="row-title before-palegreen">Grid of infinite cards </h6>
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <sb-library-cards-grid [title]="subjects[4]" [contentList]="contentList"
+                  [type]="'infinite_card_grid'" (cardClick)="cardClick($event)">
+              </sb-library-cards-grid>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section class="libraryCardGridExaples">
+          <h6 class="row-title before-palegreen">Grid of infinite cards with 4 cards per row</h6>
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <sb-library-cards-grid [title]="subjects[2]" [contentList]="contentList"
+                  [type]="'infinite_card_grid'" [maxCardCount]="4" (cardClick)="cardClick($event)">
+              </sb-library-cards-grid>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section class="libraryCardGridExaples">
+          <h6 class="row-title before-palegreen">Grid of infinite cards with hover </h6>
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <sb-library-cards-grid [title]="subjects[1]" [contentList]="contentList"
+                [type]="'infinite_card_grid_with_hover'" [maxCardCount]="4" (cardClick)="cardClick($event)"
+                (hoverActionClick)="test($event);">
+              </sb-library-cards-grid>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>

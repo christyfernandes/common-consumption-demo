@@ -1,0 +1,305 @@
+<app-navbar>
+
+</app-navbar>
+
+<div class="main-container container-fluid">
+  <!-- Page Container -->
+  <div class="page-container">
+    <!-- Page Sidebar -->
+    <app-sidebar>
+
+    </app-sidebar>
+    <!-- /Page Sidebar -->
+
+
+    <!-- Main content-->
+    <div class="page-content" [ngStyle]="!appSharedService.sideBarVisible && {'margin-left':'43px'}">
+      <div class="page-header position-relative">
+        <div class="header-title">
+          <h1>
+            Cards
+          </h1>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <section id="libraryCard">
+              <h6 class="margin-bottom-20">Library Card Component</h6>
+              <div class="well bordered-left bordered-themeprimary">
+                <p>Library Card is the component that is meant to be used in the places where a text book or content
+                  needs to be shown in the card style. </p>
+                <P>This component can be used in library section across all the consumption platforms</P>
+                <p>Basically there are four types of cards: </p>
+                <ul class="custom-list">
+                  <li>Recently Viewed card</li>
+                  <li>Mobile view textbook/content</li>
+                  <li>Desktop view textbook/content</li>
+                  <li>QR code results textbook/content</li>
+                </ul>
+                <p>You can find more details of the component, various inputs and outputs in the
+                  <a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents/blob/master/projects/common-consumption/src/lib/card/library-card/library-card.md"
+                    target="_blank">
+                    component's original repository
+                  </a>.
+                </p>
+                <p><i><b>Note : </b></i></p>
+                <p>
+                  The width of the card is fluid in nature i.e, 100% of the parent conatainer, so user can control the width of the card based on the parent element in which the card is contained.
+                </p>
+                <p>
+                  Card is not restricted to particular language. Based on your <b>i18n</b> preferences pass inputs in the desired language.
+                </p>
+                <p>
+                  In offline/online/downloaded scenarios where image attribute changes based on the network or other criteria, cardImg property must be updated.
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Default card</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card></sb-library-card>
+                  </div>
+                  
+                </div>
+              </div>
+            </section>
+            <hr>
+            <section id="recentlyViewed">
+              <h6 class="row-title">Recently Viewed Card</h6>
+              <p>Library card with type 'recently_viewed' or you can also import thr LibraryCardTypes from the library and assign type as LibraryCardTypes.RECENTLY_VIEWED</p>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Recently viewed card</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[0]" [type]="recentlyViewedCard" (click)="cardClick($event)" [cardImg]="contentList[0].appIcon">
+
+                    </sb-library-card>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <hr>
+            <section id="desktopAppTextbooks">
+              <h6 class="row-title">Text Book For Desktop App and Portal</h6>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Desktop card</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[2]" [type]="desktopTextBookCard" (click)="cardClick($event)" [cardImg]="contentList[2].appIcon">
+
+                    </sb-library-card>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <hr>
+            <section id="mobileAppTextbooks">
+              <h6 class="row-title">Text Book For Mobile App</h6>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>mobile card</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[1]" [type]="mobileTextBookCard" (click)="cardClick($event)" [cardImg]="contentList[1].appIcon">
+
+                    </sb-library-card>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <hr>
+            
+            <section id="qrCode">
+              <h6 class="row-title">QR code result Card</h6>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>QR code card</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[2]" [type]="qrcodeResultCard" (click)="cardClick($event)" [cardImg]="contentList[2].appIcon">
+
+                    </sb-library-card>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <hr>
+            <section id="cardwithHover">
+              <h6 class="row-title">Cards with hover</h6>
+              <p> For default hover effect you can include  <code>ng-template  </code> tag with required hover actions to be shown.</p>
+              <p> You can add the <code> disabled:true  </code> true property inside hoverData object for specific control</p>
+              <p>for that to work you need to add <code>hoverData</code> to the content for which this card is used. Please refer 
+                <a href="https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents/blob/master/projects/common-consumption/src/lib/card/library-card/library-card.md"
+                 target="_blank">
+                  official
+                 </a> 
+                docs for correct type of hoverData and what propeties it should have.
+              </p>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Recently viewed card with hover</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[0]" [type]="recentlyViewedCard" 
+                        (click)="cardClick($event)" [cardImg]="contentList[1].appIcon" 
+                        [hover-template]="hoverTemplate">
+
+                        <ng-template #hoverTemplate let-hoverData="hoverData" let-content="contentList[0]">
+                            <sb-card-hover class="card-hover" [hoverData]="hoverData" [content]="contentList[0]"
+                                (hoverActionClick)="hoverActionClicked($event)">
+                            </sb-card-hover>
+                        </ng-template>
+
+                    </sb-library-card>
+                    <h3><i class="Notosans font-60">Hover on the card to see the effect</i></h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row margin-top-20">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Desktop card with hover</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[0]" [type]="desktopTextBookCard" 
+                        (click)="cardClick($event)" [cardImg]="contentList[0].appIcon" 
+                        [hover-template]="hoverTemplate1">
+
+                        <ng-template #hoverTemplate1 let-hoverData="hoverData" let-content="contentList[0]">
+                            <sb-card-hover class="card-hover" [hoverData]="hoverData" [content]="contentList[0]"
+                                (hoverActionClick)="hoverActionClicked($event)">
+                            </sb-card-hover>
+                            <!-- <div class="card-hover" style="background-color: rgba(0,0,0,0.8);">
+                                <h6 style="color:#00ff4a">Christy</h6>
+                                <p style="color:#fff; opacity: 0.7;">Christopher Fernandes</p>
+                            </div> -->
+
+                        </ng-template>
+
+                    </sb-library-card>
+                    <h3><i class="Notosans font-60">Hover on the card to see the effect</i></h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row margin-top-20">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Hover with custom template</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[1]" [type]="desktopTextBookCard" 
+                        (click)="cardClick($event)" [cardImg]="contentList[1].appIcon" 
+                        [hover-template]="hoverTemplate2">
+
+                        <ng-template #hoverTemplate2 let-hoverData="hoverData" let-content="contentList[1]">
+                            <div class="card-hover" style="background-color: rgba(0,0,0,0.8);">
+                                <h2 style="color:#00ff4a">Christy</h2>
+                                <p style="color:#fff; opacity: 0.7;">Christopher Fernandes</p>
+                            </div>
+                        </ng-template>
+
+                    </sb-library-card>
+                    <h3><i class="Notosans font-60">Hover on the card to see the effect</i></h3>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <hr>
+
+            <section id="multipleCards">
+              <h6 class="row-title">Multiple cards </h6>
+              <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                  <h4>multiple desktop card</h4>
+                  <div class="row">
+                      <div class="col-xs-12 col-md-6 col-lg-3" *ngFor="let content of contentList | slice:0:4">
+                          <sb-library-card [content]="content" [type]="desktopTextBookCard" (click)="cardClick($event)" [cardImg]="content.appIcon">
+                          </sb-library-card>
+                      </div>
+                  </div>
+                    
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                  <h4 class="margin-top-20" (click)="test(testEl)" #testEl>multiple recently viewed card</h4>
+                  <div class="row" >
+                      <div class="col-xs-12 col-md-6 col-lg-3" *ngFor="let content of contentList | slice:0:4">
+                        <sb-library-card [content]="content" [type]="mobileTextBookCard" (click)="cardClick($event)" [cardImg]="content.appIcon">
+
+                        </sb-library-card>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                  <h4 class="margin-top-20">multiple cards with hover</h4>
+                    <div class="row">
+                      <div class="col-xs-12 col-md-6 col-lg-3" *ngFor="let content of contentList | slice:0:4">
+                        <sb-library-card [content]="content" [type]="recentlyViewedCard" 
+                            (click)="cardClick($event)" [cardImg]="content.appIcon" 
+                            [hover-template]="hoverTemplate">
+
+                            <ng-template #hoverTemplate let-hoverData="hoverData" let-content="content">
+                                <sb-card-hover class="card-hover" [hoverData]="hoverData" [content]="content"
+                                    (hoverActionClick)="hoverActionClicked($event)">
+                                </sb-card-hover>
+                            </ng-template>
+
+                        </sb-library-card>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <hr>
+            <section id="offlineCard">
+              <h6 class="row-title">Offline cards</h6>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Offline mobile card</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[1]" [type]="mobileTextBookCard" (click)="cardClick($event)" [cardImg]="" [isOffline]="true">
+
+                    </sb-library-card>
+                  </div>
+                  <div text-center> <small>Without any image/icon</small></div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Offline mobile card</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[1]" [type]="mobileTextBookCard" (click)="cardClick($event)" [cardImg]="'assets/imgs/ic_offline_white_sm.png'" [isOffline]="true">
+
+                    </sb-library-card>
+                  </div>
+                  <div text-center> <small>With any image/icon</small></div>
+                </div>
+              </div>
+
+              <div class="row margin-top-20">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Offline desktop card</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[2]" [type]="desktopTextBookCard" (click)="cardClick($event)" [cardImg]="" [isOffline]="true">
+
+                    </sb-library-card>
+                  </div>
+                  <div text-center> <small>Without any image/icon</small></div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <h4>Offline mobile card</h4>
+                  <div style="max-width: 292px;">
+                    <sb-library-card [content]="contentList[1]" [type]="desktopTextBookCard" (click)="cardClick($event)" [cardImg]="'assets/imgs/ic_offline_white_sm.png'" [isOffline]="true">
+
+                    </sb-library-card>
+                  </div>
+                  <div text-center> <small>With any image/icon</small></div>
+                </div>
+              </div>
+              
+            </section>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main content end-->
+  </div>
+</div>
